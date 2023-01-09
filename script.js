@@ -1,3 +1,5 @@
+const regex = /(rock)|(paper)|(scissors)/g
+
 let getComputerChoice = () =>{
     let index = Math.floor(Math.random()*3)
     if(index == 1){
@@ -26,16 +28,31 @@ let playRound = (playerSelection, computerSelection = getComputerChoice()) =>{
     }
 }
 //  FIXME:
-const game =  (choice = "rock") =>{
+const game =  () => {
     var playerPoints = 0
     var computerPoints = 0
-    for(var i = 0; i > 5; i++){
-        resoult = playRound(choice)
-        if(resoult == 1){
-            computerPoints++
-        }else if (resoult == 2){
-            playerPoints++
+    var resoult
+    for(var i = 0; i < 5; i++){
+        var choice = prompt("rock, paper, scissors!")
+        choice = choice.toLocaleLowerCase()
+        console.log(choice)
+        while(choice != /(rock)|(paper)|(scissors)/g){
+            choice = prompt("worng answer try again")
         }
+
+
+        resoult = playRound(choice)
+        if(resoult == 1) {computerPoints = computerPoints + 1}
+        
+        else if (resoult == 2){playerPoints = playerPoints + 1}
+        
+        else{console.log("tie")}
     }
-    return playerPoints
+
+    if(computerPoints > playerPoints){return"computer won"}
+    
+    else if (computerPoints < playerPoints){return"you won"}
+    
+    else{return("tie " + computerPoints + " " + playerPoints)}
 }
+
