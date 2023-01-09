@@ -10,39 +10,32 @@ let getComputerChoice = () =>{
 }
 
 
-let playRound = (playerSelection, computerSelection) =>{
-    if(playerSelection = ("rock"||"paper"||"scissors")){
+let playRound = (playerSelection, computerSelection = getComputerChoice()) =>{
+    if(playerSelection != ("rock"||"paper"||"scissors")){
         return"Wrong choice computer won"
     }else if (computerSelection == playerSelection){
-        return"it's a tie!"
+        return 0
     }else if(
         (computerSelection == "rock" && playerSelection == "scissors")||
         (computerSelection == "paper" && playerSelection == "paper")||
         (computerSelection == "scissors" && playerSelection == "rock")
     ){
-        return "computer wins"
+        return 1
     }else{
-        return "You win"
+        return 2
     }
 }
 //  FIXME:
-// let game = () =>{
-//     var playerPoints = 0
-//     var computerPoints = 0
-//     for(var i = 0; i >5; i++){
-//         var choice = "rock"
-//         var result = playRound(choice,getComputerChoice())
-//         if (result == ("Wrong choice computer won"||"computer wins")){
-//             computerPoints++
-//         }else if(result == "You win"){
-//             playerPoints++
-//         }else{
-//             i--
-//         }
-//     }
-//     if(playerPoints>computerPoints){
-//         alert("you won!")
-//     }else{
-//          alert("computer won")
-//     }
-// }
+const game =  (choice = "rock") =>{
+    var playerPoints = 0
+    var computerPoints = 0
+    for(var i = 0; i > 5; i++){
+        resoult = playRound(choice)
+        if(resoult == 1){
+            computerPoints++
+        }else if (resoult == 2){
+            playerPoints++
+        }
+    }
+    return playerPoints
+}
