@@ -34,15 +34,17 @@ const game =  () => {
     for(var i = 0; i < 5; i++){
         var choice = prompt("rock, paper, scissors!")
         choice = choice.toLocaleLowerCase()
-        console.log(choice)
-        // FIXME:
-        while(choice != ("rock"||"paper"||"scissors")){
+        // FIXED:
+        while(choice == (!"rock"||!"paper"||!"scissors")){
             choice = prompt("worng answer try again")
             if (choice === null){
                 break
+            }else if(choice != "rock"||
+            choice != "paper"||
+            choice != "scissors"){
+                break
             }
         }
-        //FIXME:
 
         resoult = playRound(choice)
         if(resoult == 1) {computerPoints = computerPoints + 1}
