@@ -27,7 +27,6 @@ let playRound = (playerSelection, computerSelection = getComputerChoice()) =>{
         return 2
     }
 }
-//  FIXME:
 const game =  () => {
     var playerPoints = 0
     var computerPoints = 0
@@ -36,10 +35,14 @@ const game =  () => {
         var choice = prompt("rock, paper, scissors!")
         choice = choice.toLocaleLowerCase()
         console.log(choice)
-        while(choice != /(rock)|(paper)|(scissors)/g){
+        // FIXME:
+        while(choice != ("rock"||"paper"||"scissors")){
             choice = prompt("worng answer try again")
+            if (choice === null){
+                break
+            }
         }
-
+        //FIXME:
 
         resoult = playRound(choice)
         if(resoult == 1) {computerPoints = computerPoints + 1}
