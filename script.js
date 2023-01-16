@@ -34,7 +34,6 @@ const game =  () => {
     for(var i = 0; i < 5; i++){
         var choice = prompt("rock, paper, scissors!")
         choice = choice.toLocaleLowerCase()
-        // FIXED:
         while(choice == (!"rock"||!"paper"||!"scissors")){
             choice = prompt("worng answer try again")
             if (choice === null){
@@ -61,3 +60,8 @@ const game =  () => {
     else{return("tie " + computerPoints + " " + playerPoints)}
 }
 
+const startButton = document.querySelector("button.start")
+//TODO:
+startButton.addEventListener('click', () =>{
+    
+})
