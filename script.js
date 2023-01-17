@@ -61,7 +61,11 @@ const game =  () => {
 }
 
 const startButton = document.querySelector("button.start")
+const gameUi = document.querySelector("#game") 
+
 //TODO:
 startButton.addEventListener('click', () =>{
-    
-})
+    const startUi = document.querySelectorAll(".start");
+    startUi.forEach(e => e.remove(e));
+    gameUi.classList.remove("hidden");
+    });

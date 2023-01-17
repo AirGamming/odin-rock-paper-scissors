@@ -7,10 +7,29 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer async></script>
 </head>
 <body>
-    <h1 class="center">Wonna play a rock paper scissors game?</h1>
+    <div id="start-ui">
+    <h1 class="center start">Wonna play a rock paper scissors game?</h1>
     <button class="start">start</button>
+    </div>
+    <div id="game" class="hidden">
+        <h1>Rock paper scissors!</h1>
+        <div>
+            <button data-choice="rock" class="game-buttons">
+                <i class="fa-solid fa-hand-back-fist"></i>
+            </button>
+
+            <button data-choice="paper" class="game-buttons">
+                <i class="fa-solid fa-hand"></i>
+            </button>
+
+            <button data-choice="scissors" class="game-buttons">
+                <i class="fa-solid fa-hand-scissors"></i>
+            </button>
+
+        </div>
+    </div>
 </body>
 </html>
