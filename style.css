@@ -2,6 +2,7 @@
 :root{
     --accent:#EEC643;
     --main: #141414;
+    --main-gradient:#292929;
     --coMain: #EEF0F2;
 }
 
@@ -19,7 +20,7 @@
     justify-content: center;
     height: 100vh;
     font-family: 'roboto' , sans-serif;
-    background-color: var(--main);
+    background: radial-gradient(circle, var(--main) 0%, var(--main-gradient) 100%);
     color: var(--coMain);
 }button{
     font-size: 2rem;
@@ -37,6 +38,24 @@
     transition: all 0.5s;
 }button:hover{
     scale: 1.2;
-}.hidden{
+}.div-game-buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+}.game-text{
+    width: 100vw;
+    text-align: center;
+    font-family: 'roboto', sans-serif;
+    padding: 2rem;
+    color: var(--coMain)
+
+}.game-buttons{
+    height: 3rem;
+    width: 3rem;
+}
+
+
+.hidden{
     display: none;
 }
