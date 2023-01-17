@@ -58,8 +58,18 @@ const game =  () => {
     else if (computerPoints < playerPoints){return"you won"}
     
     else{return("tie " + computerPoints + " " + playerPoints)}
-}
+}//TODO:
+const play = () => {
+    console
+    gameButtons.forEach(e => {
+        if (!gameButtons) console.error("can't load game buttons")
+        e.addEventListener('click', () =>{
+            playRound(e.dataset.choice)
+    }) 
 
+    });
+}
+const gameButtons = document.querySelectorAll('.game-buttons')
 const startButton = document.querySelector("button.start")
 const gameUi = document.querySelector("#game") 
 
@@ -68,14 +78,9 @@ startButton.addEventListener('click', () =>{
     const startUi = document.querySelectorAll(".start");
     startUi.forEach(e => e.remove(e));
     gameUi.classList.remove("hidden");
-    gameUi.style.cssText = "position: absolute; top: 50vh; width: 100%; textAlign: center;"
+    gameUi.style.cssText = "position: absolute; top: 50vh; width: 100%; textAlign: center;";
+    setTimeout(1000)
+    play();
+    console.log(gameButtons)
     });
-//TODO:
-const gameButtons = document.querySelectorAll('.game-button')
-gameButtons.forEach(e => {
-    if (!gameButtons) return
-    console.log(e)
-    e.addEventListener('click', el =>{
-        console.dir(el)
-   }) 
-});
+
