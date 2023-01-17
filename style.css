@@ -53,8 +53,13 @@
 }.game-buttons{
     height: 3rem;
     width: 3rem;
+}.whoWon ,.result{
+    font-size: 2rem;
+    color: var(--coMain);
+    text-align: center;
+    padding: 20px;
+    font-weight: bolder;
 }
-
 
 .hidden{
     display: none;
