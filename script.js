@@ -31,9 +31,10 @@ const paperIcon = '<i class="fa-solid fa-hand paper"></i>'
 const scissorsIcon = '<i class="fa-solid fa-hand-scissors scissors"></i>'
 const divResoult = document.querySelector('div.result')
 const whoWon = document.querySelector('.whoWon')
-
+const scoreDisplay = document.querySelector('#score-display')
 const play = () => {
-    console
+    let playerPoints = 0
+    let PCPoints = 0
     gameButtons.forEach(e => {
         if (!gameButtons) console.error("can't load game buttons")
         e.addEventListener('click', () =>{
@@ -45,12 +46,15 @@ const play = () => {
             }else if(a[0] == 1){
                 whoWon.innerHTML = "Computer won!"
                 whoWon.style.color = 'red'
+                PCPoints = PCPoints + 1
             }else{
                 whoWon.innerHTML = "You won!"
                 whoWon.style.color = 'green'
+                playerPoints=playerPoints + 1
             }
+            scoreDisplay.innerHTML = `computer: ${PCPoints} you ${playerPoints}`
     }) 
-
+    
     });
 }
 const gameButtons = document.querySelectorAll('.game-buttons')
@@ -62,9 +66,8 @@ startButton.addEventListener('click', () =>{
     const startUi = document.querySelectorAll(".start");
     startUi.forEach(e => e.remove(e));
     gameUi.classList.remove("hidden");
-    gameUi.style.cssText = "position: absolute; top: 50vh; width: 100%; textAlign: center;";
+    gameUi.style.cssText = "position: absolute; top: 40vh; width: 100%; textAlign: center;";
     setTimeout(1000)
     play();
-    console.log(gameButtons)
     });
 
