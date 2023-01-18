@@ -53,14 +53,35 @@
 }.game-buttons{
     height: 3rem;
     width: 3rem;
-}.whoWon ,.result{
+}.whoWon ,.result,.score > p, #score-display{
     font-size: 2rem;
     color: var(--coMain);
     text-align: center;
     padding: 20px;
     font-weight: bolder;
+}.popup{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(20,20,20);
+    background: radial-gradient(circle, rgba(20,20,20,1) 0%, rgba(32,32,32,0.5354516806722689) 100%); 
+}.container{
+    width: 40vw;
+    height: 40vh;
+    background-color: var(--main);
+    color: var(--coMain);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    
 }
-
 .hidden{
     display: none;
 }

@@ -9,26 +9,27 @@ let getComputerChoice = () =>{
     }
 }
 
-
 let playRound = (playerSelection, computerSelection = getComputerChoice()) =>{
-    if(playerSelection != ("rock"||"paper"||"scissors")){
-        return"Wrong choice computer won"
-    }else if (computerSelection == playerSelection){
-        return [0,computerSelection]
+    if (computerSelection == playerSelection){
+        return [0, computerSelection]
     }else if(
-        (computerSelection == "rock" && playerSelection == "scissors")||
-        (computerSelection == "paper" && playerSelection == "paper")||
-        (computerSelection == "scissors" && playerSelection == "rock")
+        (computerSelection == "rock" && playerSelection == "scissors")|| //pc win
+        (computerSelection == "paper" && playerSelection == "rock")||   //pc win
+        (computerSelection == "scissors" && playerSelection == "paper") //pc win 
     ){
-        return [1,computerSelection]
+        return [1, computerSelection]
     }else{
-        return [2,computerSelection]
+        return [2, computerSelection]
     }
 }
-//TODO:
-const rockIcon = '<i class="fa-solid fa-hand-back-fist rock"></i>'
-const paperIcon = '<i class="fa-solid fa-hand paper"></i>'
-const scissorsIcon = '<i class="fa-solid fa-hand-scissors scissors"></i>'
+const popup = (outome) => {
+    let item = document.createElement("div")
+    item.classList.add("popup")
+    item.innerHTML = `<div class='container'> <p> ${outome} </p> <button onclick= 'refreshPage()'> try again </button> </div>`
+    var body  = document.querySelector("body")
+    body.appendChild(item)
+}
+
 const divResoult = document.querySelector('div.result')
 const whoWon = document.querySelector('.whoWon')
 const scoreDisplay = document.querySelector('#score-display')
@@ -39,6 +40,7 @@ const play = () => {
         if (!gameButtons) console.error("can't load game buttons")
         e.addEventListener('click', () =>{
             a = playRound(e.dataset.choice)
+            console.log(a[1])
             divResoult.innerHTML = `<p>computer chose ${a[1]}, and you choose ${e.dataset.choice}</p>`
             if(a[0] == 0){
                 whoWon.innerHTML = "It's a tie!"
@@ -53,6 +55,8 @@ const play = () => {
                 playerPoints=playerPoints + 1
             }
             scoreDisplay.innerHTML = `computer: ${PCPoints} you ${playerPoints}`
+            if(PCPoints == 5) popup("computer won")
+            else if(playerPoints == 5) popup("you won")
     }) 
     
     });
@@ -61,7 +65,6 @@ const gameButtons = document.querySelectorAll('.game-buttons')
 const startButton = document.querySelector("button.start")
 const gameUi = document.querySelector("#game") 
 
-//FIXED:
 startButton.addEventListener('click', () =>{
     const startUi = document.querySelectorAll(".start");
     startUi.forEach(e => e.remove(e));
@@ -70,4 +73,6 @@ startButton.addEventListener('click', () =>{
     setTimeout(1000)
     play();
     });
-
+const refreshPage = ()=>{
+    location.reload()
+}
